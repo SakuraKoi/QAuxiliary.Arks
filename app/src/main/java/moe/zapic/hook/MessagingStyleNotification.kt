@@ -78,10 +78,6 @@ object MessagingStyleNotification : CommonSwitchFunctionHook(SyncUtils.PROC_ANY)
 
     @Throws(Exception::class)
     override fun initOnce(): Boolean {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            createNotificationChannels()
-        }
-
         if (!HostInfo.requireMinQQVersion(QQVersion.QQ_8_9_63)) {
             return NonNTMessageStyleNotification(this).hook()
         }
@@ -267,21 +263,4 @@ object MessagingStyleNotification : CommonSwitchFunctionHook(SyncUtils.PROC_ANY)
         builder.setShortcutInfo(shortcut)
         return builder.build()
     }
-
-    @RequiresApi(Build.VERSION_CODES.O)
-    private fun createNotificationChannels() {
-        val notificationChannels: List<NotificationChannel> = getNotificationChannels()
-        // don't create new channel group since the old channel ids are still used
-        val notificationChannelGroup = NotificationChannelGroup("qq_evolution", "QQ通知进化 Plus")
-        val notificationManager: NotificationManager = hostInfo.application.getSystemService(NotificationManager::class.java)
-        if (notificationChannels.any { notificationChannel ->
-                notificationManager.getNotificationChannel(notificationChannel.id) == null
-            }) {
-            Log.i("QNotifyEvolutionXp: Creating channels...")
-            notificationManager.createNotificationChannelGroup(notificationChannelGroup)
-            notificationManager.createNotificationChannels(notificationChannels)
-        }
-    }
-
-
 }
