@@ -46,8 +46,9 @@ abstract class ReplaceIcon : Copy() {
         // copy new icons
         val iconFileDirs = listOf(
             // File(iconsDir, "QAPro"),
-            File(iconsDir, "classic"),
+            // File(iconsDir, "classic"),
             // File(iconsDir, "ChineseNewYearIcon")
+            File(iconsDir, "Arks"),
         )
         val iconFile = iconFileDirs.flatMap { it.listFiles()!!.toList() }.random(random)
         println("Select Icon: $iconFile")

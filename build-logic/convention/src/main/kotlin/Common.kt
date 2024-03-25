@@ -10,7 +10,7 @@ object Common {
         val rootProject = project.rootProject
         val projectDir = rootProject.projectDir
         val headFile = File(projectDir, ".git" + File.separator + "HEAD")
-        return if (headFile.exists()) {
+        return 114514 + if (headFile.exists()) {
             FileRepository(rootProject.file(".git")).use { repo ->
                 val refId = repo.resolve("HEAD")
                 Git(repo).log().add(refId).call().count()
@@ -37,7 +37,8 @@ object Common {
     }
 
     fun getExtraSuffix(): String {
-        return if (Version.minSdk < 24) ".lvs" else ""
+        return ".Arks"
+        // return if (Version.minSdk < 24) ".lvs" else ""
     }
 
     fun getBuildVersionName(project: Project): String {
