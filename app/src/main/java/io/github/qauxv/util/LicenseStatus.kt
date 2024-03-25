@@ -40,6 +40,9 @@ object LicenseStatus {
 
     @JvmStatic
     fun getEulaStatus(): Int {
+        // Arks: Accept Eula by default
+        return CURRENT_EULA_VERSION;
+
         val cfg = ConfigManager.getDefaultConfig()
         return cfg.getIntOrDefault(qn_eula_status, 0)
     }
@@ -53,12 +56,18 @@ object LicenseStatus {
 
     @JvmStatic
     fun hasEulaUpdated(): Boolean {
+        // Arks: Accept Eula by default
+        return false;
+
         val s = getEulaStatus()
         return s != 0 && s != CURRENT_EULA_VERSION
     }
 
     @JvmStatic
     fun hasUserAcceptEula(): Boolean {
+        // Arks: Accept Eula by default
+        return true;
+
         return getEulaStatus() == CURRENT_EULA_VERSION
     }
 
