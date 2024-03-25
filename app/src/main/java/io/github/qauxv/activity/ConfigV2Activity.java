@@ -186,7 +186,7 @@ public class ConfigV2Activity extends AppCompatTransferActivity {
         var id = v.getId();
         if (id == R.id.mainV2_githubRepo) {
             Intent intent = new Intent(Intent.ACTION_VIEW);
-            intent.setData(Uri.parse("https://github.com/cinit/QAuxiliary"));
+            intent.setData(Uri.parse("https://github.com/SakuraKoi/QAuxiliary.Arks"));
             startActivity(intent);
         } else if (id == R.id.mainV2_help) {
             new AlertDialog.Builder(this)

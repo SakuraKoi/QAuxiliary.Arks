@@ -439,7 +439,7 @@ object DumpTelegramStickers : CommonConfigFunctionHook() {
                     pack.set("epId", epid)
                     pack.set("name", "QAExtraSticker")
                     pack.set("type", 3)
-                    pack.set("ipJumpUrl", "https://github.com/cinit/QAuxiliary/")
+                    pack.set("ipJumpUrl", "https://github.com/SakuraKoi/QAuxiliary.Arks/")
                     pack.set("ipDetail", "QA")
                     pack.set("valid", true)
                     pack.set("status", 2)

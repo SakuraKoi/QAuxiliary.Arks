@@ -191,7 +191,7 @@ class AboutFragment : BaseRootLayoutFragment() {
         ContextCompat.startActivity(requireContext(), intent, null)
     }
 
-    private val GITHUB_URL = "https://github.com/SakuraKooi/QAuxiliary.Arks"
+    private val GITHUB_URL = "https://github.com/SakuraKoi/QAuxiliary.Arks"
 
     private val mAllowAppCenterStatics: ISwitchCellAgent = object : ISwitchCellAgent {
         override val isCheckable = true
