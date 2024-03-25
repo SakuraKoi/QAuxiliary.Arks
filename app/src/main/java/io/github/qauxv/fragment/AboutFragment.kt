@@ -82,7 +82,7 @@ class AboutFragment : BaseRootLayoutFragment() {
 
     private val hierarchy: Array<DslTMsgListItemInflatable> by lazy {
         arrayOf(
-            CategoryItem("QAuxiliary") {
+            CategoryItem("QAuxiliary.Arks") {
                 textItem("愿每个人都被这世界温柔以待", value = " :) ")
             },
             CategoryItem("版本") {
@@ -100,6 +100,7 @@ class AboutFragment : BaseRootLayoutFragment() {
                 textItem("Build UUID", summary = BuildConfig.BUILD_UUID) {
                     copyText(BuildConfig.BUILD_UUID)
                 }
+                /*
                 if (isInHostProcess) {
                     textItem("模块热更新设置") {
                         SettingsUiFragmentHostActivity.startFragmentWithContext(
@@ -108,6 +109,7 @@ class AboutFragment : BaseRootLayoutFragment() {
                         )
                     }
                 }
+                 */
             },
             CategoryItem("隐私与协议") {
                 textItem("用户协议与隐私政策") {
@@ -116,6 +118,7 @@ class AboutFragment : BaseRootLayoutFragment() {
                         fragmentClass = EulaFragment::class.java
                     )
                 }
+                /*
                 if (!isInModuleProcess) {
                     add(
                         TextSwitchItem(
@@ -125,6 +128,7 @@ class AboutFragment : BaseRootLayoutFragment() {
                         )
                     )
                 }
+                 */
             },
             CategoryItem("群组") {
                 textItem("Telegram 频道", value = "@QAuxiliary") {
@@ -135,7 +139,7 @@ class AboutFragment : BaseRootLayoutFragment() {
                 }
             },
             CategoryItem("源代码") {
-                textItem("GitHub", value = "cinit/QAuxiliary") {
+                textItem("GitHub", value = "SakuraKooi/QAuxiliary.Arks") {
                     openUrl(GITHUB_URL)
                 }
             },
@@ -187,7 +191,7 @@ class AboutFragment : BaseRootLayoutFragment() {
         ContextCompat.startActivity(requireContext(), intent, null)
     }
 
-    private val GITHUB_URL = "https://github.com/cinit/QAuxiliary"
+    private val GITHUB_URL = "https://github.com/SakuraKooi/QAuxiliary.Arks"
 
     private val mAllowAppCenterStatics: ISwitchCellAgent = object : ISwitchCellAgent {
         override val isCheckable = true
@@ -337,6 +341,7 @@ class AboutFragment : BaseRootLayoutFragment() {
                 startActivity(intent)
                 true
             }
+
             else -> {
                 super.onOptionsItemSelected(item)
             }
