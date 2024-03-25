@@ -41,6 +41,10 @@ public class CliOper {
     private static final String TAG_IS_APP_CENTER_ALLOWED = "is_app_center_allowed";
 
     public static boolean isAppCenterAllowed() {
+        // Arks: Disable stats
+        if (true)
+            return false;
+
         return ConfigManager.getDefaultConfig().getBooleanOrDefault(TAG_IS_APP_CENTER_ALLOWED, true);
     }
 
@@ -49,6 +53,10 @@ public class CliOper {
     }
 
     public static void __init__(Application app) {
+        // Arks: Disable stats
+        if (true)
+         return;
+
         if (app == null) {
             return;
         }
