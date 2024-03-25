@@ -92,6 +92,9 @@ object LicenseStatus {
 
     @JvmStatic
     fun isInsider(): Boolean {
+        // Arks: Disable remote
+        return true;
+
         val cfg = ConfigManager.getDefaultConfig()
         var currentStatus = cfg.getIntOrDefault(qn_user_auth_status, -1)
         if (currentStatus == UserStatusConst.notExist) {
@@ -107,6 +110,9 @@ object LicenseStatus {
 
     @JvmStatic
     fun isBlacklisted(): Boolean {
+        // Arks: Disable remote
+        return false;
+
         val cfg = ConfigManager.getDefaultConfig()
         var currentStatus = cfg.getIntOrDefault(qn_user_auth_status, -1)
         if (currentStatus == UserStatusConst.notExist) {
@@ -122,6 +128,9 @@ object LicenseStatus {
 
     @JvmStatic
     fun isWhitelisted(): Boolean {
+        // Arks: Disable remote
+        return true;
+
         if (isInsider())
             return true
         val cfg = ConfigManager.getDefaultConfig()

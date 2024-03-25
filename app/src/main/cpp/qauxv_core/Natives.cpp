@@ -328,6 +328,8 @@ jboolean handleSendCardMsg(JNIEnv *env, jclass clazz, jobject rt, jobject sessio
     }
     if (env->GetStringLength(msg) < 3)return false;
 
+// Arks: Disable remote
+#ifdef NEVER_COMPILE_THIS
     jclass cardMsgListClass = env->FindClass("me/singleneuron/util/KotlinUtilsKt");
     jmethodID getInstance = env->GetStaticMethodID(cardMsgListClass,"checkCardMsg", "(Ljava/lang/String;)Lme/singleneuron/data/CardMsgCheckResult;");
     jobject result = env->CallStaticObjectMethod(cardMsgListClass,getInstance,msg);
@@ -349,6 +351,7 @@ jboolean handleSendCardMsg(JNIEnv *env, jclass clazz, jobject rt, jobject sessio
                                   (jobject) nullptr, reason);
         return true;
     }
+#endif
 
     jchar format;
     env->GetStringRegion(msg, 0, 1, &format);

@@ -43,7 +43,10 @@ import javax.net.ssl.HttpsURLConnection
 
 object TransactionHelper {
 
-    private const val apiAddress = "https://api.qwq2333.top/qa"
+    // Arks: Disable remote (as fallback for anything i missed
+    private const val apiAddress = "https://0.0.0.0/qa"
+
+    //private const val apiAddress = "https://api.qwq2333.top/qa"
 
     // in ms, 15min
     private const val COOLDOWN_TIME = 15 * 60 * 1000L
@@ -64,6 +67,9 @@ object TransactionHelper {
 
     @JvmStatic
     fun getUserStatus(uin: Long): Int {
+        // Arks: Disable remote
+        return UserStatusConst.developer;
+
         return try {
             val url = URL("$apiAddress/user/query")
             val conn = url.openConnection() as HttpsURLConnection
@@ -96,6 +102,9 @@ object TransactionHelper {
      */
     @JvmStatic
     fun postCardMsg(uin: Long, msg: String): String? {
+        // Arks: Disable remote
+        return null;
+
         try {
             if (LicenseStatus.isWhitelisted()) {
                 return null
