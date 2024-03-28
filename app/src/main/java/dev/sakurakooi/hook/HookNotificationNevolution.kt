@@ -41,11 +41,12 @@ import io.github.qauxv.util.Log
 import io.github.qauxv.util.SyncUtils
 import io.github.qauxv.util.hostInfo
 
+// TODO: 从upstream升级 qnotifyevo 的代码以适配新版本QQ
 @FunctionHookEntry
 @UiItemAgentEntry
 object HookNotificationNevolution : CommonSwitchFunctionHook(SyncUtils.PROC_ANY) {
     override val isAvailable = Build.VERSION.SDK_INT >= Build.VERSION_CODES.O
-    override val name = "Ark. QQ通知进化"
+    override val name = "QQ通知进化"
     override val description: String = "使用 Xposed 实现的 QQ-Notify-Evolution " + if (isAvailable) "" else " [系统不支持]"
 
     override val uiItemLocation = FunctionEntryRouter.Locations.Auxiliary.NOTIFICATION_CATEGORY

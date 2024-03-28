@@ -21,6 +21,8 @@
  */
 
 import android.databinding.tool.ext.capitalizeUS
+import com.android.build.gradle.internal.lint.AndroidLintAnalysisTask
+import com.android.build.gradle.internal.lint.LintModelWriterTask
 import com.android.build.gradle.internal.tasks.factory.dependsOn
 import com.android.tools.build.apkzlib.sign.SigningExtension
 import com.android.tools.build.apkzlib.sign.SigningOptions
@@ -429,4 +431,12 @@ val generateEulaAndPrivacy by tasks.registering {
             it.writeText(output)
         }
     }
+}
+
+tasks.withType<AndroidLintAnalysisTask>{
+    dependsOn("generateEulaAndPrivacy")
+}
+
+tasks.withType<LintModelWriterTask>{
+    dependsOn("generateEulaAndPrivacy")
 }
